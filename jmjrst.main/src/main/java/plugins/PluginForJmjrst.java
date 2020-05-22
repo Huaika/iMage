@@ -1,5 +1,7 @@
 package plugins;
 
+import org.apache.commons.lang.builder.HashCodeBuilder;
+
 /**
  * Abstract parent class for plug-ins for JMJRST
  *
@@ -47,21 +49,37 @@ public abstract class PluginForJmjrst implements Comparable<PluginForJmjrst> {
    */
   public abstract void configure();
 
+  /**
+   * compares the current plugin with another one lexicographically
+   * using the compareTo method as defined in the String class
+   * @param otherPlugin the plugin to be compared to
+   * @return  0 if equal, 1 if other precedes this, -1 if this precedes other
+   */
   @Override
   public int compareTo(PluginForJmjrst otherPlugin) {
-
-    return 0;
+    return this.getName().compareTo(otherPlugin.getName());
   }
 
   @Override
   public int hashCode() {
-    //TODO: implement me!
-    return 0;
+    return new HashCodeBuilder(17, 37)
+            .append(this.getName())
+            .append(this.getNumberOfParameters())
+            .append(this.isConfigurable())
+            .toHashCode();
   }
 
   @Override
   public boolean equals(Object obj) {
-    //TODO: implement me!
-    return true;
+    if (this == obj) {
+      return true;
+    }
+    if (obj == null || this.getClass() != obj.getClass()) {
+      return false;
+    }
+    boolean sameName = this.getName().equals(((PluginForJmjrst) obj).getName());
+    boolean sameNumberOfParameters = this.getNumberOfParameters() == ((PluginForJmjrst) obj).getNumberOfParameters();
+    boolean sameConfigurableValue = this.isConfigurable() == ((PluginForJmjrst) obj).isConfigurable();
+    return sameName && sameConfigurableValue && sameNumberOfParameters;
   }
 }
