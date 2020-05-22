@@ -62,11 +62,10 @@ public abstract class PluginForJmjrst implements Comparable<PluginForJmjrst> {
 
   @Override
   public int hashCode() {
-    return new HashCodeBuilder(17, 37)
-            .append(this.getName())
-            .append(this.getNumberOfParameters())
-            .append(this.isConfigurable())
-            .toHashCode();
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + ((this.getName() == null) ? 0 : this.getName().hashCode());
+    return result;
   }
 
   @Override
@@ -77,9 +76,6 @@ public abstract class PluginForJmjrst implements Comparable<PluginForJmjrst> {
     if (obj == null || this.getClass() != obj.getClass()) {
       return false;
     }
-    boolean sameName = this.getName().equals(((PluginForJmjrst) obj).getName());
-    boolean sameNumberOfParameters = this.getNumberOfParameters() == ((PluginForJmjrst) obj).getNumberOfParameters();
-    boolean sameConfigurableValue = this.isConfigurable() == ((PluginForJmjrst) obj).isConfigurable();
-    return sameName && sameConfigurableValue && sameNumberOfParameters;
+    return this.getName().equals(((PluginForJmjrst) obj).getName());
   }
 }
