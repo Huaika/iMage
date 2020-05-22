@@ -16,15 +16,14 @@
 package org.jis.view;
 
 import java.net.URL;
+import java.util.Iterator;
 
-import javax.swing.ImageIcon;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.UIManager;
+import javax.swing.*;
 
 import org.jis.Main;
 import org.jis.listner.MenuListner;
+import plugins.PluginForJmjrst;
+import plugins.PluginManagement;
 
 /**
  * @author <a href="http://www.jgeppert.com">Johannes Geppert</a>
@@ -151,4 +150,53 @@ public class Menu extends JMenuBar {
           .equalsIgnoreCase("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel")) optionen_look.add(look_nimbus); //$NON-NLS-1$
     }
   }
+
+  /**
+   * introduces the all the available Plugins
+   * as menu items in the loadPlugIns menu
+   * @param main  the instance of the main class
+   * @param loadPlugIns the loaded plugins menu where the plugins
+   *                    shall be added
+   */
+  private void introducePluginsInPluginMenu(Main main, JMenu loadPlugIns) {
+
+    Iterator<PluginForJmjrst> iterator = PluginManagement.getPlugins().iterator();
+    while (iterator.hasNext()) {
+      PluginForJmjrst plugin = iterator.next();
+      plugin.init(main);
+      JMenuItem start = new JMenuItem(plugin.getName());
+      start.addActionListener(event -> plugin.run());
+      loadPlugIns.add(start);
+
+      if (plugin.isConfigurable()) {
+        JMenuItem configure = new JMenuItem(plugin.getName());
+        configure.addActionListener(event -> plugin.configure());
+        loadPlugIns.add(configure);
+      }
+      if (iterator.hasNext()) {
+        loadPlugIns.addSeparator();
+      }
+    }
+  }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
