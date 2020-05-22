@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/iMage.iml" filepath="$PROJECT_DIR$/iMage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iMage.mosaique/iMage.mosaique.iml" filepath="$PROJECT_DIR$/iMage.mosaique/iMage.mosaique.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iMage.mosaique.cli/iMage.mosaique.cli.iml" filepath="$PROJECT_DIR$/iMage.mosaique.cli/iMage.mosaique.cli.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jmjrst.main/jmjrst.main.iml" filepath="$PROJECT_DIR$/jmjrst.main/jmjrst.main.iml" />
+    </modules>
+  </component>
+</project>
