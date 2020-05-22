@@ -15,6 +15,7 @@
  */
 package org.jis.view;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.Iterator;
 
@@ -108,6 +109,9 @@ public class Menu extends JMenuBar {
     datei.add(gallerie);
     datei.addSeparator();
     datei.add(exit);
+
+    introducePluginsInPluginMenu(m, loadPlugIns);
+
     option.add(optionen_look);
     option.add(set_quality);
     option.addSeparator();
@@ -176,6 +180,13 @@ public class Menu extends JMenuBar {
       if (iterator.hasNext()) {
         loadPlugIns.addSeparator();
       }
+    }
+
+    if (loadPlugIns.getMenuComponentCount() == 0) {
+      JMenuItem none = new JMenuItem("no Plug-Ins available!");
+      none.setEnabled(false);
+      none.setForeground(Color.GRAY);
+      loadPlugIns.add(none);
     }
   }
 
