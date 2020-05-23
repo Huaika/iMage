@@ -1,4 +1,7 @@
+package org.iMage.plugins.crashCourse;
+
 import org.jis.Main;
+import org.kohsuke.MetaInfServices;
 import plugins.PluginForJmjrst;
 
 import javax.swing.*;
@@ -11,6 +14,7 @@ import java.util.stream.Collectors;
  * @author alejandrovillagómez
  * @version 1.0
  */
+@MetaInfServices(PluginForJmjrst.class)
 public class JavaCrashCourse extends PluginForJmjrst {
 
     /**
