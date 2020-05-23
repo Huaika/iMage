@@ -19,6 +19,17 @@ public class JavaCrashCourse extends PluginForJmjrst {
     private Main main;
 
     /**
+     * the java final released versions
+     */
+    private final String JAVA_SE_9 =  "Java SE 9";
+    private final String JAVA_SE_10 =  "Java SE 10";
+    private final String JAVA_SE_11 =  "Java SE 11";
+    private final String JAVA_SE_12 =  "Java SE 12";
+    private final String JAVA_SE_13 =  "Java SE 13";
+    private final String JAVA_SE_14 =  "Java SE 14";
+
+
+    /**
      * a list of all java releases to this date
      */
     private List javaReleases;
@@ -34,17 +45,32 @@ public class JavaCrashCourse extends PluginForJmjrst {
     public void init(Main main) {
         this.main = main;
         javaReleases = List.of(
-                "Java SE 9", "Java SE 10", "Java SE 11",
-                "Java SE 12", "Java SE 13", "Java SE 14"
+                JAVA_SE_9, JAVA_SE_10, JAVA_SE_11,
+                JAVA_SE_12, JAVA_SE_13, JAVA_SE_14
         );
     }
 
     public void run() {
-
+        if (javaReleases.isEmpty()) {
+            System.out.println(this.getName() + "(" + this.getNumberOfParameters() + ")");
+        } else {
+            int length = javaReleases.size();
+            double random = Math.random() * 100;
+            random = random % length;
+            String taken = (String) javaReleases.get((int) random);
+            System.out.println(
+                    switch (taken) {
+                        case JAVA_SE_14 -> "Keeping updated";
+                        case JAVA_SE_9, JAVA_SE_10, JAVA_SE_11, JAVA_SE_12, JAVA_SE_13
+                                -> "Running late";
+                        default -> throw new IllegalStateException("Unexpected value: " + taken);
+                    }
+            );
+        }
     }
 
     public boolean isConfigurable() {
-        return false;
+        return true;
     }
 
     public void configure() {
