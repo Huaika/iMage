@@ -12,6 +12,6 @@ public class App {
      * @param args the arguments
      */
     public static void main(String[] args) {
-
+        org.jis.Main.main(args);
     }
 }
