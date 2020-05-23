@@ -16,7 +16,7 @@
         </dependency>
         <dependency>
             <groupId>swt1</groupId>
-            <artifactId>iMage.JavaCrashCourse-plugin</artifactId>
+            <artifactId>iMage.org.iMage.plugins.crashCourse.JavaCrashCourse-plugin</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
