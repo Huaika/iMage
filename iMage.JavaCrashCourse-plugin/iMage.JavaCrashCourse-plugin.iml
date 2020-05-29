@@ -16,6 +16,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.kohsuke.metainf-services:metainf-services:1.8" level="project" />
     <orderEntry type="module" module-name="jmjrst.main" />
     <orderEntry type="library" name="Maven: commons-lang:commons-lang:2.6" level="project" />
     <orderEntry type="library" name="Maven: org.kohsuke.metainf-services:metainf-services:1.8" level="project" />

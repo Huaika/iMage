@@ -52,6 +52,7 @@ public class JavaCrashCourse extends PluginForJmjrst {
                 JAVA_SE_9, JAVA_SE_10, JAVA_SE_11,
                 JAVA_SE_12, JAVA_SE_13, JAVA_SE_14
         );
+        System.out.println("Found " + getNumberOfParameters() + " Java versions since Java 8");
     }
 
     public void run() {
