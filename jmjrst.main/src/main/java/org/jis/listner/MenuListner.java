@@ -40,6 +40,14 @@ import org.jis.view.dialog.GallerieDialog;
  * </p>
  */
 public class MenuListner implements ActionListener {
+
+  /**
+   * Warning encapsulation violation!
+   * all the attributes below should be private
+   * they are only accessed in this same class, so getter
+   * and setters are not necessary. They should be final too..
+   * they dont change
+   */
   static String metalClassName      = "javax.swing.plaf.metal.MetalLookAndFeel";
   static String motifClassName      = "com.sun.java.swing.plaf.motif.MotifLookAndFeel";
   static String nimbusClassName      = "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel";
