@@ -59,7 +59,7 @@ public class Menu extends JMenuBar {
     JMenu datei = new JMenu(m.mes.getString("Menu.0"));
     JMenu option = new JMenu(m.mes.getString("Menu.1"));
     JMenu optionen_look = new JMenu(m.mes.getString("Menu.2"));
-    JMenu loadPlugIns = new JMenu("the load plugins menu");
+    JMenu loadPlugIns = new JMenu("Load plug-ins");
     JMenu about = new JMenu(m.mes.getString("Menu.3"));
 
     gener = new JMenuItem(m.mes.getString("Menu.4"));
@@ -168,12 +168,12 @@ public class Menu extends JMenuBar {
     while (iterator.hasNext()) {
       PluginForJmjrst plugin = iterator.next();
       plugin.init(main);
-      JMenuItem start = new JMenuItem(plugin.getName());
+      JMenuItem start = new JMenuItem(plugin.getName() + " - run");
       start.addActionListener(event -> plugin.run());
       loadPlugIns.add(start);
 
       if (plugin.isConfigurable()) {
-        JMenuItem configure = new JMenuItem(plugin.getName());
+        JMenuItem configure = new JMenuItem(plugin.getName() + " - configure");
         configure.addActionListener(event -> plugin.configure());
         loadPlugIns.add(configure);
       }

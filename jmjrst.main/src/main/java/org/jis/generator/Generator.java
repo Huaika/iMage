@@ -48,6 +48,7 @@ import java.util.zip.ZipOutputStream;
  * </p>
  */
 public class Generator {
+
   public final static double ROTATE_90 = Math.toRadians(90);
   public final static double ROTATE_270 = Math.toRadians(270);
   public final static double ROTATE_M90 = Math.toRadians(-90);
@@ -76,7 +77,7 @@ public class Generator {
    * 		File, the Name of the new ZIP-File
    * @param selected
    * 		Vector, the Images for the ZIP-File
-   */
+   */   // TODO encapsulation violation!!
   public void createZip(File zipFileName, Vector<File> selected) {
     try {
       byte[] buffer = new byte[4096];

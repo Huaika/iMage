@@ -39,7 +39,7 @@ public class JavaCrashCourse extends PluginForJmjrst {
     private List javaReleases;
 
     public String getName() {
-        return this.getClass().getName();
+        return "JavaCrashCourse";
     }
 
     public int getNumberOfParameters() {
