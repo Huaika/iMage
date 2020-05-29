@@ -2,7 +2,7 @@ package org.iMage.bundle;
 
 /**
  *
- * @author alejandrovillagómez
+ * @author Alejandro Villagómez
  * @version 1.0
  */
 public class App {

@@ -3,7 +3,11 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    <parent>
+        <groupId>swt1</groupId>
+        <artifactId>iMage</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
     <groupId>swt1</groupId>
     <artifactId>iMage.Bundle</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -16,7 +20,7 @@
         </dependency>
         <dependency>
             <groupId>swt1</groupId>
-            <artifactId>iMage.org.iMage.plugins.crashCourse.JavaCrashCourse-plugin</artifactId>
+            <artifactId>JavaCrashCourse-plugin</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
@@ -30,7 +34,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
+                            <classpathPrefix>target/</classpathPrefix>
                             <classpathLayoutType>repository</classpathLayoutType>
                             <mainClass>org.iMage.bundle.App</mainClass>
                         </manifest>
@@ -53,24 +57,23 @@
                             <useBaseVersion>true</useBaseVersion>
                             <overWriteSnapshots>true</overWriteSnapshots>
                             <overWriteIfNewer>true</overWriteIfNewer>
-                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                            <includeScope>runtime</includeScope>
+                            <outputDirectory>${project.build.directory}/target</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
-                <configuration>
-                    <release>14</release>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <source>14</source>-->
+<!--                    <target>14</target>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
         </plugins>
     </build>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+<!--    <properties>-->
+<!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+<!--    </properties>-->
 
 </project>

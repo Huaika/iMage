@@ -189,7 +189,6 @@ public class Menu extends JMenuBar {
       loadPlugIns.add(none);
     }
   }
-
 }
 
 

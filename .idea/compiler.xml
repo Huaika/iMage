@@ -9,18 +9,18 @@
         <outputRelativeToContentRoot value="true" />
         <module name="iMage.Bundle" />
         <module name="iMage.mosaique" />
-        <module name="iMage.JavaCrashCourse-plugin" />
         <module name="jmjrst.main" />
+        <module name="iMage.JavaCrashCourse-plugin" />
         <module name="iMage.mosaique.cli" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="14">
-      <module name="iMage" target="1.14" />
+      <module name="iMage" target="14" />
       <module name="iMage.Bundle" target="14" />
       <module name="iMage.JavaCrashCourse-plugin" target="14" />
-      <module name="iMage.mosaique" target="1.14" />
-      <module name="iMage.mosaique.cli" target="1.14" />
-      <module name="jmjrst.main" target="1.14" />
+      <module name="iMage.mosaique" target="14" />
+      <module name="iMage.mosaique.cli" target="14" />
+      <module name="jmjrst.main" target="14" />
     </bytecodeTargetLevel>
   </component>
 </project>
