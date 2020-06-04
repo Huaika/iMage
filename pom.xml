@@ -25,5 +25,6 @@
         <module>iMage.mosaique.cli</module>
         <module>iMage.JavaCrashCourse-plugin</module>
         <module>iMage.Bundle</module>
+        <module>iMage.iTiler</module>
     </modules>
 </project>

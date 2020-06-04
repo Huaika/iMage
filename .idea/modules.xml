@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/iMage.iml" filepath="$PROJECT_DIR$/iMage.iml" />
       <module fileurl="file://$PROJECT_DIR$/iMage.Bundle/iMage.Bundle.iml" filepath="$PROJECT_DIR$/iMage.Bundle/iMage.Bundle.iml" />
       <module fileurl="file://$PROJECT_DIR$/iMage.JavaCrashCourse-plugin/iMage.JavaCrashCourse-plugin.iml" filepath="$PROJECT_DIR$/iMage.JavaCrashCourse-plugin/iMage.JavaCrashCourse-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iMage.iTiler/iMage.iTiler.iml" filepath="$PROJECT_DIR$/iMage.iTiler/iMage.iTiler.iml" />
       <module fileurl="file://$PROJECT_DIR$/iMage.mosaique/iMage.mosaique.iml" filepath="$PROJECT_DIR$/iMage.mosaique/iMage.mosaique.iml" />
       <module fileurl="file://$PROJECT_DIR$/iMage.mosaique.cli/iMage.mosaique.cli.iml" filepath="$PROJECT_DIR$/iMage.mosaique.cli/iMage.mosaique.cli.iml" />
       <module fileurl="file://$PROJECT_DIR$/jmjrst.main/jmjrst.main.iml" filepath="$PROJECT_DIR$/jmjrst.main/jmjrst.main.iml" />

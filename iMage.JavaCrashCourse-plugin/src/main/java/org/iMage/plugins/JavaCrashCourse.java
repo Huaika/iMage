@@ -1,10 +1,10 @@
-package org.iMage.plugins.crashCourse;
+package org.iMage.plugins;
 
 import org.jis.Main;
 import org.kohsuke.MetaInfServices;
 import plugins.PluginForJmjrst;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 import java.util.List;
 import java.util.stream.Collectors;
 
