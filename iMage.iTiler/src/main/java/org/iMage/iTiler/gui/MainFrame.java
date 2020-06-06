@@ -6,9 +6,14 @@ import java.awt.*;
 public class MainFrame extends JFrame {
 
     /**
-     * the toolbar which contains the run and rectangle Button
+     * the toolbar which is at the lower part of the frame
      */
-    private ToolBar toolBar;
+    private LowerToolBar lowerToolBar;
+
+    /**
+     * the toolbar at the middle of the frame
+     */
+    private MiddleToolBar middleToolBar;
 
     public MainFrame() {
         super("iTiler");
@@ -21,11 +26,12 @@ public class MainFrame extends JFrame {
         setResizable(false);  // makes the frame no more resizeable
 
         //initiating the components
-        toolBar = new ToolBar();
+        lowerToolBar = new LowerToolBar();
+        middleToolBar = new MiddleToolBar();
 
         //adding the components into the frame
-        add(toolBar, BorderLayout.SOUTH);
-
+        add(lowerToolBar, BorderLayout.PAGE_END);
+        add(middleToolBar, BorderLayout.CENTER);
 
         //Display the window
         pack();

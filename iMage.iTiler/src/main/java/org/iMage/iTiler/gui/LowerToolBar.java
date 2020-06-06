@@ -3,7 +3,7 @@ package org.iMage.iTiler.gui;
 import javax.swing.*;
 import java.awt.*;
 
-public class ToolBar extends JPanel {
+public class LowerToolBar extends JPanel {
 
 
     private JButton runButton;
@@ -16,7 +16,7 @@ public class ToolBar extends JPanel {
     private JLabel artistLabel;
 
 
-    public ToolBar() {
+    public LowerToolBar() {
 
         //specifying the border
         setBorder(BorderFactory.createTitledBorder("Artistic"));
