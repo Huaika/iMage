@@ -20,3 +20,11 @@ public class Main {
         SwingUtilities.invokeLater(Main::createAndShowGUI);
     }
 }
+
+
+
+//TODO show tile implementation
+//TODO accept only ints as input
+//TODO display warning images
+//TODO practices
+//TODO javadocs
