@@ -4,14 +4,16 @@ import org.iMage.iTiler.controller.Controller;
 import org.iMage.iTiler.utils.Utilities;
 
 import javax.imageio.ImageIO;
-import javax.imageio.ImageWriter;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainFrame extends JFrame {
+
 
     /**
      * the toolbar which is at the lower part of the frame
@@ -27,6 +29,11 @@ public class MainFrame extends JFrame {
      * the upper left panel which contains the input image
      */
     private UpperPanel upperPanel;
+
+    /**
+     * the window displayed when showing the tiles
+     */
+    private TilesWindow tilesWindow;
 
     /**
      * the frames controller
@@ -71,6 +78,7 @@ public class MainFrame extends JFrame {
         });
 
         //setup the Lower tool bar
+
         lowerToolBar.setDirectoryListener(new DirectoryLoadListener() {
             @Override
             public void emitDirectory(File directoryFile) {
@@ -91,6 +99,17 @@ public class MainFrame extends JFrame {
             }
         });
 
+
+        lowerToolBar.setWindowListener(new WindowListener() {
+            @Override
+            public void displayWindow() {
+                tilesWindow = new TilesWindow();
+                tilesWindow.paintThumbnails(
+                        Utilities.convertArtListToBuffer(controller.getDb().getArtist().getThumbnails())
+                );
+            }
+        });
+
         //adding the components into the frame
         add(lowerToolBar, BorderLayout.PAGE_END);
         add(middleToolBar, BorderLayout.CENTER);
@@ -99,9 +118,5 @@ public class MainFrame extends JFrame {
         //Display the window
         pack();
         setVisible(true);
-
     }
-
-
-
 }

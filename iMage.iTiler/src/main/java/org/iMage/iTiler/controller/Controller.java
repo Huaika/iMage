@@ -8,19 +8,24 @@ import java.awt.image.BufferedImage;
 
 public class Controller {
 
-
-
     /**
      * the data base where the relevant data gets stored for later analysis
      */
     private Database db;
 
+    /**
+     * the image to output
+     */
     private BufferedImage outPutImage;
 
     public Controller() {
         db = new Database();
     }
 
+    /**
+     * gets the database
+     * @return the db
+     */
     public Database getDb() {
         return db;
     }

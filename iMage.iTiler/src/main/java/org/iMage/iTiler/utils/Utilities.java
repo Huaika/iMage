@@ -103,6 +103,23 @@ public class Utilities {
        artImage = new BufferedArtImage(bufferedImage);
        return artImage;
     }
+
+
+    /**
+     * converts a list with buffered art images into a list of
+     * buffered art images
+     * @param artImages  the given list to convert
+     * @return the converted list
+     */
+    public static List<BufferedImage> convertArtListToBuffer(List<BufferedArtImage> artImages) {
+        List<BufferedImage> bufferedImages = new ArrayList<>();
+        BufferedImage current;
+        for (BufferedArtImage artImage : artImages) {
+            current = artImage.toBufferedImage();
+            bufferedImages.add(current);
+        }
+        return bufferedImages;
+    }
 }
 
 

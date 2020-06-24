@@ -1,5 +1,7 @@
 package org.iMage.iTiler.dataBase;
 
+import org.iMage.iTiler.gui.Observer;
+import org.iMage.iTiler.gui.Subject;
 import org.iMage.iTiler.utils.Utilities;
 import org.iMage.mosaique.base.BufferedArtImage;
 import org.iMage.mosaique.base.IMosaiqueArtist;
@@ -9,21 +11,20 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Database {
+public class Database implements Subject {
 
 
+    private ArrayList<Observer> observers;
     private BufferedArtImage inputImage;
-    private List<BufferedArtImage> mosaiqueImages;
+    private List<BufferedArtImage> mosaiqueTiles;
     private int tileWidth;
     private int tileHeight;
     private IMosaiqueArtist artist;
-    private boolean readyToExecute;
 
 
     public Database() {
-        mosaiqueImages = new ArrayList<>();
+        mosaiqueTiles = new ArrayList<>();
     }
-
 
     /**
      * submits the inputImage into the database
@@ -38,7 +39,7 @@ public class Database {
      * @param mosaiqueImages    the images to submit
      */
     public void submitImages(List<BufferedImage> mosaiqueImages) {
-        this.mosaiqueImages.addAll(Utilities.convertToBufferedArt(mosaiqueImages));
+        this.mosaiqueTiles.addAll(Utilities.convertToBufferedArt(mosaiqueImages));
     }
 
 
@@ -64,9 +65,10 @@ public class Database {
      */
     public void submitArtist(String artist) {
         if (artist.equals("rectangle")) {
-            this.artist = new RectangleArtist(mosaiqueImages, tileWidth, tileHeight);
+            this.artist = new RectangleArtist(mosaiqueTiles, tileWidth, tileHeight);
         } else if (artist.equals("triangle")) {
-            // TODO triangle artist
+        //TODO
+            // this.artist = new TriangleArtist(mosaiqueIamges, tileWidth, tileHeight);
         }
     }
 
@@ -76,26 +78,40 @@ public class Database {
      * @return  if th info is full then true, else false
      */
     public boolean isReadyToExecute() {
-        if (inputImage!= null && artist != null && mosaiqueImages != null && tileWidth != 0 && tileHeight != 0) {
+        if (inputImage!= null && artist != null && mosaiqueTiles != null && tileWidth != 0 && tileHeight != 0) {
             return true;
         }
         return false;
     }
 
+    @Override
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        int i = observers.indexOf(observer);
+        if (i >= 0) {
+            observers.remove(i);
+        }
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer o : observers) {
+            o.update(inputImage, mosaiqueTiles, tileWidth, tileHeight, artist);
+        }
+    }
+
+
+
     public BufferedArtImage getInputImage() {
         return inputImage;
     }
 
-    public List<BufferedArtImage> getMosaiqueImages() {
-        return mosaiqueImages;
-    }
-
-    public int getTileWidth() {
-        return tileWidth;
-    }
-
-    public int getTileHeight() {
-        return tileHeight;
+    public List<BufferedArtImage> getMosaiqueTiles() {
+        return mosaiqueTiles;
     }
 
     public IMosaiqueArtist getArtist() {

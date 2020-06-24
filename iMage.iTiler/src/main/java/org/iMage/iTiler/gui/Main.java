@@ -12,7 +12,6 @@ public class Main {
         JFrame.setDefaultLookAndFeelDecorated(true);
         //create and set up the window
         new MainFrame();
-
     }
 
     public static void main(String[] args) {
@@ -22,9 +21,10 @@ public class Main {
 }
 
 
-
 //TODO show tile implementation
 //TODO accept only ints as input
 //TODO display warning images
 //TODO practices
 //TODO javadocs
+//TODO how to getThumbnails from the artist before run command
+// how to make the image pannel correctly

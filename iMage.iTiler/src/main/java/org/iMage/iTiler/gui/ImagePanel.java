@@ -11,6 +11,9 @@ import java.io.IOException;
 
 public class ImagePanel extends JPanel {
 
+    /**
+     * the image of the panel
+     */
     private BufferedImage image;
 
     public ImagePanel(BufferedImage bufferedImage) {

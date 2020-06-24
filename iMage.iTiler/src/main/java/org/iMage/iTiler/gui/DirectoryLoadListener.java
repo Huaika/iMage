@@ -6,7 +6,7 @@ public interface DirectoryLoadListener {
 
     /**
      *
-     * @param directoryFile
+     * @param directoryFile th directory file to open
      */
     void emitDirectory(File directoryFile);
 

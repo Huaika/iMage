@@ -2,13 +2,17 @@ package org.iMage.iTiler.gui;
 
 import org.iMage.iTiler.dataBase.Database;
 import org.iMage.iTiler.utils.DirectoryFilter;
+import org.iMage.mosaique.base.BufferedArtImage;
+import org.iMage.mosaique.base.IMosaiqueArtist;
 
 import javax.swing.*;
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
-public class LowerToolBar extends JPanel implements ActionListener {
+public class LowerToolBar extends JPanel implements ActionListener, Observer {
 
 
     private JButton runButton;
@@ -22,6 +26,9 @@ public class LowerToolBar extends JPanel implements ActionListener {
     private JFileChooser fileChooser;
     private DirectoryLoadListener directoryListener;
     private DatabaseListener dbListener;
+    private WindowListener windowListener;
+
+    private boolean tilesLoaded;
 
 
     public LowerToolBar() {
@@ -86,22 +93,35 @@ public class LowerToolBar extends JPanel implements ActionListener {
         this.dbListener = dbListener;
     }
 
+    /**
+     * sets the window listener of the class
+     * @param windowListener the passed window listener
+     */
+    public void setWindowListener(WindowListener windowListener) {
+        this.windowListener = windowListener;
+    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton clicked = (JButton) e.getSource();
         if (clicked == loadTilesButton) {
+            System.out.println("loading the tiles");
             if (directoryListener != null) {
                 fileChooser.showOpenDialog(LowerToolBar.this);
                 directoryListener.emitDirectory(fileChooser.getSelectedFile());
             }
+            setTilesLoaded(true);
         }
         else if(clicked == showTilesButton) {
-            showNewWindow();
-            System.out.println("showing new window");
+            if (areTilesLoaded()) {
+                System.out.println("tiles are loaded and showing tiles proceeds");
+                windowListener.displayWindow();
+            }
         }
         else if (clicked == runButton) {
             if (dbListener != null) {
+                System.out.println("run button clicked");
                 String width = widthField.getText();
                 String height = heightField.getText();
                 String artist = (String) figureBox.getSelectedItem();
@@ -110,16 +130,18 @@ public class LowerToolBar extends JPanel implements ActionListener {
         }
     }
 
-    //Create a new MyFrame object and show it.
-    public void showNewWindow() {
-        JFrame frame = new JFrame();
 
-        frame.setUndecorated(true);
-        frame.setLocation(350, 500);
+    public boolean areTilesLoaded() {
+        return tilesLoaded;
+    }
 
-        //Show window.
-        frame.setSize(new Dimension(350, 250));
-        frame.setVisible(true);
+    public void setTilesLoaded(boolean tilesLoaded) {
+        this.tilesLoaded = tilesLoaded;
+    }
+
+    @Override
+    public void update(BufferedArtImage inputImage, List<BufferedArtImage> mosaiqueTiles, int tileWidth, int tileHeight, IMosaiqueArtist artist) {
+
     }
 }
 
